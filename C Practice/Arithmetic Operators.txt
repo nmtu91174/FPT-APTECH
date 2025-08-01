@@ -1,0 +1,12 @@
+Write a C program that performs the following operations:
+
+Declare two integer variables num1 and num2 and initialize them with values 15 and 4 respectively.
+Calculate and store the sum of num1 and num2 in a variable called sum.
+Calculate and store the difference between num1 and num2 in a variable called difference.
+Calculate and store the product of num1 and num2 in a variable called product.
+Calculate and store the quotient of num1 divided by num2 in a variable called quotient.
+Print all results using printf() in the following format:
+Sum: [value of sum]
+Difference: [value of difference]
+Product: [value of product]
+Quotient: [value of quotient]
