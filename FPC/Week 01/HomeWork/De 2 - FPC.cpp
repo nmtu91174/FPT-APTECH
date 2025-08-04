@@ -6,7 +6,7 @@ int main(){
 	float b;
 	float x;
 	
-	printf("nhap a,b de giai phuong trinh ax+b=0:\n");
+	printf("Nhap vao hai so a,b de giai phuong trinh ax+b=0:\n");
 	
 	printf("nhap a: ");
 	scanf("%f",&a);
@@ -15,14 +15,14 @@ int main(){
 		
 	if (a!=0){
 		x = -b/a;
-		printf("nghiem cua he phuong trinh ax+b=0 la: %.2f",x);
+		printf("Nghiem cua he phuong trinh ax+b=0 la: %.2f",x);
 	}
 			else {
 					if (b==0) {
-						printf("he phuong trinh ax+b=0 vo so nghiem");
+						printf("He phuong trinh ax+b=0 co vo so nghiem");
 					}
 					else{
-						printf("he phuong trinh ax+b=0 vo nghiem");
+						printf("He phuong trinh ax+b=0 vo nghiem");
 					}
 					
 			}
