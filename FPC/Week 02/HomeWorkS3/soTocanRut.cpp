@@ -4,6 +4,7 @@ int main(){
 	
 	int soTien;
 	int soTo;
+	
 	int phanDu500;
 	int phanDu200;
 	int phanDu100;
@@ -78,6 +79,15 @@ int main(){
 		soTo = phanDu20/10;
 		printf("soTo 10 la: %d\n", soTo);
 	}
+	
+//	int money;
+//	int amount;
+//	int type;
+//	
+//	printf("Nhap so tien can rut (boi so cua 10): ");
+//    scanf("%d", &money);
+//    
+//    if (money % 10 !)
 		
 		return 0;
 	}
