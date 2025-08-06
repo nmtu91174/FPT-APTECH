@@ -3,7 +3,6 @@
 int main(){
 	
 	int soTien;
-	int menhGia;
 	int soTo;
 	int phanDu500;
 	int phanDu200;
@@ -32,7 +31,7 @@ int main(){
         return 1;
 	}
 	
-	if (soTien/500 != 0){
+	if (soTien/500 > 0){
 		
 		soTo = soTien/500;
 		
@@ -41,7 +40,7 @@ int main(){
 		
 	
 			
-	if (phanDu500/200 != 0){
+	if (phanDu500/200 > 0){
 		
 		soTo = phanDu500/200;
 		
@@ -50,7 +49,7 @@ int main(){
 	
 	
 	
-	if (phanDu200/100 != 0){
+	if (phanDu200/100 > 0){
 						
 		soTo = phanDu200/100;
 		
@@ -59,7 +58,7 @@ int main(){
 	}
 	
 	
-	if (phanDu100/50 != 0){
+	if (phanDu100/50 > 0){
 						
 		soTo = phanDu100/50;
 			
@@ -67,14 +66,14 @@ int main(){
 		
 	}
 	
-	if (phanDu50/20 != 0){
+	if (phanDu50/20 > 0){
 		
 		soTo = phanDu50/20;
 		
 		printf("soTo 20 la: %d\n", soTo);
 	}
 		
-	if (phanDu20/10 != 0){
+	if (phanDu20/10 > 0){
 		
 		soTo = phanDu20/10;
 		printf("soTo 10 la: %d\n", soTo);
