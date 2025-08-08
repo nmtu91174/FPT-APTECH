@@ -87,7 +87,15 @@ int main(){
 //	printf("Nhap so tien can rut (boi so cua 10): ");
 //    scanf("%d", &money);
 //    
-//    if (money % 10 !)
+//    if (money % 10 != 0 || money <= 0){
+//    	
+//    	printf("So tien phai la boi so cua 10 va lon hon 0!\n");
+//    	printf("\n");
+//    	printf("Hay nhap lai so tien can rut: ");
+//    	scanf("%d", &money);
+    	
+    	
+    	
 		
 		return 0;
 	}
