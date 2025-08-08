@@ -24,15 +24,22 @@ int main() {
 			
 	if (aTo10 > bTo10){
 		printf("\n");
-		printf("b gan voi so 10 hon a!");
+		printf("------------------------------\n");
+		printf("b (%d) gan voi so 10 hon a (%d)!", b, a);
+		printf("\n");
 		
 		} else if(aTo10 < bTo10){
 			printf("\n");
-			printf("a gan voi so 10 hon b!");
+			printf("------------------------------\n");
+			printf("a (%d) gan voi so 10 hon b (%d)!", a, b);
+			printf("\n");
 			
 			} else {
 				printf("\n");
-				printf("Hai so bang nhau");
+				printf("------------------------------\n");
+				printf("Hai so bang nhau!");
+				printf("\n");
 			}
+			
 	return 0;
 }

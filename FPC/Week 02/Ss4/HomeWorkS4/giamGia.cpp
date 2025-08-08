@@ -21,11 +21,14 @@ int main(){
 	
 	pay = bill - discount;
 	
-	printf("\n------------------------------\n");
-    printf("Tong tien hoa don mua hang: %.2f VND\n", bill);
+	
+    printf("\n");
+	printf("Tong tien hoa don mua hang: %.2f VND\n", bill);
     printf("Giam gia: %.2f VND\n", discount);
-    printf("So tien can phai tra: %.2f VND\n", pay);
-    printf("------------------------------\n");
+    printf("\n");
+    printf("--------------------------------------\n");
+	printf("So tien can phai tra: %.2f VND\n", pay);
+
 
     return 0;
 }

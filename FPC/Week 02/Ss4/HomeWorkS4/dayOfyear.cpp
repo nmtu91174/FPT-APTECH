@@ -58,18 +58,6 @@ int main(){
 }	
 	
 	
-	
-	
-	
-
-
-	
-	
-	
-	
-	
-
-
 //int isDay = 0;
 //	
 //	if (m==2){
@@ -101,6 +89,6 @@ int main(){
 //		isDay > 30;
 //	}
 //	else isDay > 31;)
-//	Printf("")
+//	Printf("nga thang ko hop le")
 //	} while
 
