@@ -2,11 +2,12 @@
 
 int main(){
 	
-	int n;
+	int n, temp;
 	printf("Nhap n: ");
 	scanf("%d", &n);
 	
 	int dn = 0;
+	temp = n;
 	
 	while(n!=0){
 		int dv = n%10;
@@ -15,7 +16,7 @@ int main(){
 		
 	}
 	
-	printf("So dao nguoc cua n (%d): %d", n, dn);
+	printf("So dao nguoc cua n (%d) la: %d", temp, dn);
 	
 	return 0;
 	

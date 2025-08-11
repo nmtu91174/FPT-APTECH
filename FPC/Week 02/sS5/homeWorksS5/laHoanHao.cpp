@@ -19,7 +19,7 @@ int main(){
 		i++;
 	}	
 		if (s==n){
-			printf("n la hoan hao!");
+			printf("n %d la hoan hao!", s);
 			}
 			else {
 			
