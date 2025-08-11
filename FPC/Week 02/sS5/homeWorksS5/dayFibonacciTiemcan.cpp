@@ -8,8 +8,8 @@ int main(){
 	scanf("%d", &n);
 	printf("\n");
 	
-	int f0;   // F0
-    int f1;   // F1
+	int f0 = 0;   // F0
+    int f1 = 1;   // F1
     //int i = 2;
     int fn;
     
@@ -34,8 +34,6 @@ int main(){
 		}
     }
 
-    
-    
-    
+     
     return 0;
 }
