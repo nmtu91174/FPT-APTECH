@@ -2,7 +2,7 @@
 
 int main(){
 	
-	int a[5];
+	int a[100];
 	int n;
 	
 	printf("Nhap so phan tu cho mang: ");
