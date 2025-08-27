@@ -1,0 +1,29 @@
+h1{
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight:100;
+    line-height:0.5;
+}
+h2{
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 100; 
+    line-height:normal;
+}
+p{
+    border-bottom: 1px solid black ; /*đường viền dưới*/
+    padding-bottom: 5px;
+}
+ul{
+    border-bottom: 1px solid black ; /*đường viền dưới*/
+    padding-bottom: 5px;
+}
+ol{
+    border-bottom: 1px solid black ; /*đường viền dưới*/
+    padding-bottom: 5px;
+}
+li{
+    margin-left: 15px;
+}

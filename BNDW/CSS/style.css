@@ -1,0 +1,33 @@
+h1{
+    /*chỉ định cho thẻ h1*/
+    color: red; /*Thuộc tính: giá trị*/
+}
+p{
+    /*chỉ định cho thẻ p*/
+    color: green; /* mã hexa bắt đầu #*/
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify; /*căn chữ*/
+    line-height: 1.5; /*khoảng cách giữa các dòng = 1.5*font-size*/
+    text-transform: capitalize; /* chuyển form chữ*/
+    text-decoration: none; /*gạch chân hay gạch ngang ..*/
+    font-weight: 400; /*độ đậm chữ: thin, light ...*/
+    word-spacing: normal; /*khoảng cách giữa các từ*/
+    background-color: darkgrey; /*màu nền*/
+    border-bottom: 1px solid black ; /*đường viền dưới*/
+}
+
+ul{
+    /*chỉ định cho thẻ ul*/
+    color: blue; /* mã hexa bắt đầu #*/
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify; /*căn chữ*/
+    line-height: 1.5; /*khoảng cách giữa các dòng = 1.5*font-size*/
+    text-transform: capitalize; /* chuyển form chữ*/
+    text-decoration: none; /*gạch chân hay gạch ngang ..*/
+    font-weight: 400; /*độ đậm chữ: thin, light ...*/
+    word-spacing: normal; /*khoảng cách giữa các từ*/
+    background-color: darkgrey; /*màu nền*/
+    border-bottom: 1px solid black ; /*đường viền dưới*/
+}
