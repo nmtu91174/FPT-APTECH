@@ -20,7 +20,7 @@ h3{
     line-height:0.5;
 }
 div{
-    border-bottom: 1px solid black ; /*đường viền dưới*/
+    border-bottom: 1px solid black ; 
     padding-bottom:0%; 
 }
 li{
