@@ -1,0 +1,29 @@
+div{
+    width:300px;
+    float: left; /*cho phep cac the div dung canh nhau */
+    border: 1px solid black;  
+    margin: 10px; /*khoang cach giua cac the*/
+    padding: 10px; /*khoang cach giua vien va noi dung */
+    box-sizing: border-box; /*tinh ca padding va border vao chieu rong cua the */
+    border-radius: 5px; /*bo tron goc vien */
+    background-color: #abdfc7; /*mau nen */
+
+}
+div:hover{
+    background-color: #f0e68c; /*mau nen khi hover */
+    /*transform: translate(0, -5px); di chuyen the len 5px khi hover */
+    transform: scale(1.05); /*phong to the len 5% khi hover */
+    transition: all 0.3s ease; /*thoi gian chuyen doi hieu ung hover */
+}
+
+img{
+    max-width: 100%; /*co hinh anh ve the cha neu no vuot qua */
+}
+
+.box1{
+    border: 2px dashed red; /*vien doan gach */
+    padding: 20px; /*khoang cach giua vien va noi dung */
+    margin: 20px; /*khoang cach giua cac the*/
+    background-color: #06b35c; /*mau nen */
+    box-sizing: border-box; /*tinh ca padding va border vao chieu rong cua the */
+}

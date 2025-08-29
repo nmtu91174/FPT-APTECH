@@ -1,0 +1,87 @@
+.container {
+      display: flex;            /* chia 2 cột */
+      max-width: 1200px;         /* giới hạn chiều rộng CV */
+      margin: 0 auto;           /* căn giữa trang */
+      border: 1px solid #ccc;   /* khung ngoài */
+    }
+.trai{
+    float: left;
+    width: 30%;               /* cột trái */
+    background: #1a2b36;      
+    padding: 20px;
+    text-align: left;
+}
+.trai h2{
+    color: white;
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: "helvetica condensed", sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    display: inline-block;
+  
+}
+.trai p{
+    color: white;
+    font-family: helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.btitle{
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.info{
+    color: white;
+    font-family: helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-left: -25px;
+}
+.idPhoto{
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.phai{
+    float: right;
+    width: 70%;               /* cột trái */
+    background: #ffffff;      
+    padding: 20px;
+    text-align: left;
+}
+.phai h1{
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight:300;
+    line-height:0.5;
+}
+.phai h2{
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 200; 
+    line-height:0.5;
+}
+.phai h3{
+    text-transform: capitalize;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 100; 
+    line-height:0.5;
+}
+
+li{
+    margin-left: 15px;
+}
