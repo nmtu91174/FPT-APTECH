@@ -14,7 +14,7 @@ int main(){
 	//player = (int*)calloc(10* sizeof(int)) //da don dep truoc khi cap phat
 	
 	
-	for(int i=0; i<10, i++){
+	for(int i=0; i<10; i++){
 		printf("\nNhap gia tri player [%d]=\n", i);
 		//scanf("%d", player+i);
 		scanf("%d", &player[i]);
@@ -23,7 +23,7 @@ int main(){
 	//cap lai thanh 15 o
 	player = (int *)realloc(player, 15 * sizeof(int));
 	
-	for(int i=0; i<n; i++){
+	for(int i=0; i<15; i++){
 		printf("\nNhap gia tri player [%d]=\n",i);
 		//scanf("%d", player+i);
 		scanf("%d", &player[i]);

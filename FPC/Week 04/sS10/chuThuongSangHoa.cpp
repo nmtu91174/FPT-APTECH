@@ -15,6 +15,8 @@ int main(){
 	for(int i = 0; chuoi[i]!='\0'; i++){
 		if(chuoi[i]>= 'a' && chuoi[i]<='z'){
 			chuoi[i] = chuoi[i] - ('a'-'A');
+			//chuoi[i] = chuoi[i] - 32);
+			
 		}
 	}
 	
