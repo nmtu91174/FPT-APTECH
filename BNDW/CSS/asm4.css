@@ -1,0 +1,103 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color:brown;
+}   
+body{
+    background: #eaeaea; /* Chính là màu nền của trang web, sáng quá thì chói mắt */
+    font-family: "Roboto", sans-serif;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333;
+}
+
+p{
+    margin-bottom: 0.75rem;
+}
+/*layout */
+/*style cho phần section*/
+.section{
+    float: left;
+    width: 100%;
+}   
+.header{
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+   
+}   
+.container {
+      display: flex;            /* chia 2 cột */
+      max-width: 1200px;         /* giới hạn chiều rộng CV */
+      margin: 0 auto;           /* căn giữa trang */
+      border: 1px solid #ccc;   /* khung ngoài */
+    }
+.left{
+    float: left;
+    width: 50%;               /* cột trái */
+    background: #035ef1;      
+    padding: 20px;
+    text-align:center;
+    color: #eaeaea;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+.nav{
+    background-color: #008000ce;
+}
+.nav ul li{
+    float:left;
+    list-style: none;
+    margin-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+} 
+
+.nav ul li a{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: block;
+}
+.nav ul li.right{
+    float: right;
+}
+
+.left button{
+    background: #035ef1;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.right {
+  display: flex;
+  flex-wrap: wrap; /* cho phép xuống dòng */
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rightdiv {
+  flex: 1 1 calc(50% - 20px); /* chiếm 50% chiều rộng trừ gap */
+  background: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  border-radius: 6px;
+}

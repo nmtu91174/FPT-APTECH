@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Carattere&family=Dancing+Script:wght@400..700&family=Meow+Script&family=Merienda:wght@300..900&family=Oregano:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&display=swap" rel="stylesheet"/> 
+
+    <link rel="stylesheet" href="css/layout.css"/> 
+
+</head>
+<body>
+    <header class="section header">
+        <div class="container">
+
+        </div>
+
+    </header>
+    <nav class="section nav">
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Category</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="right"><a href="#">Register</a></li>
+                <li class="right"><a href="#">Login</a></li>
+                
+            </ul>            
+        </div>
+    </nav>
+    <main class="section main">
+        <div class="container">
+            <p>
+                {% block content %}
+                This is the main content area.
+                {% endblock %}
+            </p>
+        </div>
+    </main>
+
+    <section class="section option">
+        <div class="container">
+            
+        </div>
+    </section>
+
+    <footer class="section footer">
+        <div class="container">
+            
+        </div>
+    </footer>
+    
+        
+</body>
+</html>
+    
