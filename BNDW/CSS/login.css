@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "lato", sans-serif;
+    font-weight: 400;
+}
+.font-body{
+    background-color: white;
+    height: 100%;    
+}
+.ioform-layout{
+    height: 100%;
+    display: flex;
+}
+.form-body .form-holder{
+    margin-left: 0;
+    width: 100%;
+}
+.form-content{
+    background-color: white;
+    padding: 125px 60px 60px 60px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center; /*can giua theo chieu ngang*/
+    align-items: center;        /*can giua theo chieu doc*/
+    height: 100%;
+}
+.form-content .image-container img{
+    max-width: 480px;
+}
+.form-items{
+    padding: 35px 30px;
+    background-color: #f7b606;
+    max-width: 380px;
+    text-align: center;
+    position: relative; /*co the chua image-float*/
+
+}
+
+.image-float{
+    position: absolute; /*de no co the di chuyen*/
+
+}
+
+.website-logo-inside img{
+    max-width: 100%;
+}
+.font-md{
+    color:white;
+    font-weight: 700;
+    text-align:center;
+    margin-bottom: ;
+}
+.ibtn{
+    padding: auto;
+    font-size: ;
+    font-weight: ;
+    background-color: ;
+    color: ;
+    
+}
