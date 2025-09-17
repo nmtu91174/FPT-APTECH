@@ -4,7 +4,7 @@ h1{
 }
 p{
     /*chỉ định cho thẻ p*/
-    color: green; /* mã hexa bắt đầu #*/
+    color: rgb(157, 52, 11); /* mã hexa bắt đầu #*/
     font-size: 16px;
     font-family: 'Courier New', Courier, monospace;
     text-align: justify; /*căn chữ*/
@@ -30,4 +30,8 @@ ul{
     word-spacing: normal; /*khoảng cách giữa các từ*/
     background-color: darkgrey; /*màu nền*/
     border-bottom: 1px solid black ; /*đường viền dưới*/
+}
+
+#fan{
+    transform: rotate(90deg);
 }

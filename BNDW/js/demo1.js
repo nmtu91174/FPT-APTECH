@@ -42,7 +42,7 @@ var abc = [1,2,3,"xin chao"];
 
 arr[0] = 10;
 arr[1] = 15;
-arr.push(18); //arr[2] = 18;
+arr.push(18); //arr[2] = 18; tự nhận a[2] = 18
 
 //duyệt mảng dùng for
 
@@ -79,16 +79,16 @@ tinhtong([1,2,3]," ",9);
 
 //prompt("How are you?");//hàm trả về string
 
-var age = prompt("How are you?");
-age = age + 10;
+// var age = prompt("How are you?");
+// age = age + 10;
 
-alert(age); 
+// alert(age); 
 
 //ok mà có điền thì là string
 //ok mà không điền thì string rỗng
 //cancel giá trị null
 
-age = parseInt(age);
+//age = parseInt(age);
 
 //nhap vào 20 ==> trả về 20
 //nhập vào "20ab48" ==> trả về 20 còn cắt hết bỏ đi
@@ -98,18 +98,45 @@ age = parseInt(age);
 
 //nhân với 100, rồi tìm cách cắt phần sau dấu phẩy nếu muốn có số random từ 0->99
 
-var lk = Math.random();
-lk = lk * 100;
-lk = parseInt(lk);
-console.log(lk);
+// var lk = Math.random();
+// lk = lk * 100;
+// lk = parseInt(lk);
+// console.log(lk);
 
-var num = prompt("Bạn chọ số nào?");
-num = parseInt(num);
-if(num==lk){
-    alert("you are damn lucky!");
-}else{
-    alert("comeback tomorrow!");
-}
+// var num = prompt("Bạn chọ số nào?");
+// num = parseInt(num);
+// if(num==lk){
+//     alert("you are damn lucky!");
+// }else{
+//     alert("comeback tomorrow!");
+// }
+
+//đặt trong hàm function các việc cần trì hoãn
+// setTimeout(function(){
+//     alert("message");
+// }, 3000); //3000ms
+
+//hàm trì hoãn lặp mãi mãi
+
+// setInterval(function(){
+//     //alert("vòng lặp");
+// },3000); //làm đồng hồ đếm ngược, quạt quay. 
+
+// var c = 10;
+// setInterval(function(){
+//     alert(c);
+//     c--;
+    
+// },1000); //đếm ngược số
+
+// var c = 10;
+// var bom = setInterval(function(){
+//     alert(c);
+//     c--;
+//     if(c<0){
+//         clearInterval(bom);
+//     }
+// },500); //đếm ngược số đến 0 thì dừng
 
 
 
