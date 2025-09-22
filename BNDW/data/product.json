@@ -1,0 +1,30 @@
+{
+
+    "name": "iphone 17 air",
+    "price": 32000000,
+    "image": "image/graphic13-1.svg",
+    "description": "dòng sản phẩm air mới có ở bản 17",
+    "stock": {
+        "qty": 9
+    },
+
+    "reviews": [
+        {
+            "rate": 5,
+            "review": "nhin dep ok"
+        },
+        {
+            "rate": 4,
+            "review": "cung ok"
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
