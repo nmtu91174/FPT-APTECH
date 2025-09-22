@@ -1,5 +1,5 @@
 function demoOne(){
-    alert("one two three ... ");
+    alert("one two three");
 }
 
 function demoTwo(){
@@ -9,7 +9,7 @@ function demoTwo(){
 var flag = false;
 var fanbox = null;
 
-function fanRotate() {
+function fanRotate(btn) {
     if(flag == false){
         var fan = document.getElementById("fan");
         var dg = 0;
@@ -33,4 +33,4 @@ function fanRotate() {
 
 /* Cần có giao diện đặt các kích hoạt sự kiện
 - input bàn phím và chuột
-- chuột button và bàn phím
+- chuột button và bàn phím*/
