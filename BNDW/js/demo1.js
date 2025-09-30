@@ -129,14 +129,14 @@ tinhtong([1,2,3]," ",9);
     
 // },1000); //đếm ngược số
 
-// var c = 10;
-// var bom = setInterval(function(){
-//     alert(c);
-//     c--;
-//     if(c<0){
-//         clearInterval(bom);
-//     }
-// },500); //đếm ngược số đến 0 thì dừng
+var c = 10;
+var bom = setInterval(function(){
+    alert(c);
+    c--;
+    if(c<0){
+        clearInterval(bom);
+    }
+},500); //đếm ngược số đến 0 thì dừng
 
 
 

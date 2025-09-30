@@ -1,0 +1,28 @@
+body{
+    background-image: url("weather");
+    background-size: cover;
+}
+
+.item{
+    float: left;
+    width: 100%;
+    background-color: #00000050;
+    color: #ffffff;
+    padding: 20px;
+    height: 190px;
+    line-height: 1.5;
+    border
+
+}
+.item h3{
+    
+    font-size: 16px;
+}
+.item h2{
+    
+    font-size: 26px;
+}
+.item img{
+    transform: translate(180px, -80px);
+}
+
