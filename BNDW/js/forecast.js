@@ -1,12 +1,12 @@
-function forecast(){
+function forecast() {
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=hanoi&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`;
-    fetch(url).then(rs=>rs.json())
-    .then(function(data){
-        // đọc và sử dụng dữ liệu nhận về từ api
-        var list= data.list; // array forecase weather
-        var forecast_html = "";
-        for(var i=0;i<list.length;i++){
-            forecast_html += `
+    fetch(url).then(rs => rs.json())
+        .then(function (data) {
+            // đọc và sử dụng dữ liệu nhận về từ api
+            var list = data.list; // array forecase weather
+            var forecast_html = "";
+            for (var i = 0; i < list.length; i++) {
+                forecast_html += `
                 <div class="col-12 col-md-6 col-xl-3 mt-3">
                     <div class="item">
                         <h3>${list[i].dt_txt}</h3>
@@ -16,8 +16,22 @@ function forecast(){
                     </div>
                 </div>
             `;
-        }
-        document.getElementById("forecast").innerHTML = forecast_html;
-    });
+            }
+            document.getElementById("forecast").innerHTML = forecast_html;
+        });
 }
 forecast();
+
+//lấy thông tin user từ localStorage
+// var user = JSON.parse(localStorage.getItem("user"));
+// document.getElementById("info").innerHTML = `
+//     <h3>Thông tin user</h3>
+//     <p>Họ tên: ${user.name}</p>
+//     <p>Email: ${user.email}</p>
+//     <p>Tuổi: ${user.age}</p>
+//     <p>Địa chỉ: ${user.address}</p>
+// `;  
+
+var strUser = localStorage.getItem("user");
+var user = JSON.parse(strUser);
+console.log(user);
