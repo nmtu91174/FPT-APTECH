@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art & Craft Product Comparison</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo">
+      <h1>Art & Craft Store</h1>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Compare</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- BODY -->
+  <main>
+    <h2>Compare Products</h2>
+    <div class="search-box">
+      <input type="text" id="product1" placeholder="Enter product ID or name for product 1">
+      <input type="text" id="product2" placeholder="Enter product ID or name for product 2">
+      <button onclick="compareProducts()">Compare</button>
+    </div>
+
+    <!-- Nơi hiển thị bảng so sánh -->
+    <div id="comparison"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Art & Craft Store. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
