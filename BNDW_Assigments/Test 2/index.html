@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Coffee House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Menu điều hướng -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="products.html">Sản phẩm</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="price.html">Báo giá</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+        <h1>Liên hệ với Coffee House</h1>
+        <p>Chúng tôi luôn sẵn sàng lắng nghe bạn</p>
+
+    </header>
+
+    <div class="container">
+
+    <!-- Thông tin liên hệ -->
+    <section class="contact-info">
+        <h2>Thông tin liên hệ</h2>
+        <p><b>Địa chỉ:</b> 13 Trịnh Văn Bô</p>
+        <p><b>Điện thoại:</b> 0123456789</p>
+        <p><b>Email:</b> support@coffeehouse.vn</p>
+        <p><b>Giờ mở cửa:</b> 7:00 - 22:00 (hàng ngày)</p>
+        <br><br>
+        <img src="image/confused.png" alt="Tìm đuờng" width="200px"/>
+    </section>
+
+    <!-- Form liên hệ -->
+    <section class="contact-form">
+        <h2>Gửi tin nhắn cho chúng tôi</h2>
+        <form>
+            <div class="form-group">
+                <label>Họ và tên:</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Số điện thoại:</label>
+                <input type="tel" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label>Nội dung:</label>
+                <textarea name="message" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <button onclick="return confirm('có chắc chắn không?')" type="submit">Gửi thông tin</button>
+            </div>
+        </form>
+    </section>
+    </div>
+
+    <!-- Bản đồ -->
+    <section class="map">
+        
+        <h2>Địa chỉ của chúng tôi</h2>
+        <iframe
+                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3922.3573420634375!2d105.7466813980147!3d21.039158641070788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1svi!2sus!4v1757399459053!5m2!1svi!2sus" width="100%" height="450" style="border: 1px solid white;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+            
+    </section>
+
+    <!-- Mạng xã hội -->
+    <footer>
+        <p>Kết nối với chúng tôi:</p>
+            <a href="#" class="facebook"><i class="fab fa-facebook"></i> Facebook</a> |
+            <a href="#" class="instagram"><i class="fab fa-instagram"></i> Instagram</a> |
+            <a href="#" class="tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+    </footer>
+</body>
+</html>

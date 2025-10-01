@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lịch sử mua hàng — Amazon-like (Demo)</title>
+  <style>
+    :root{
+      --bg:#f6f6f6;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#ff9900; /* Amazon-like accent */
+      --radius:8px;
+      --glass: rgba(0,0,0,0.04);
+      --max-width:1100px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#111}
+    header{background:linear-gradient(180deg,#fff,#fafafa);border-bottom:1px solid #e6e6e6}
+    .sitebar{max-width:var(--max-width);margin:0 auto;padding:18px 16px;display:flex;align-items:center;gap:16px}
+    .logo{font-weight:700;color:var(--accent);font-size:20px}
+    main{max-width:var(--max-width);margin:24px auto;padding:0 16px}
+    h1{font-size:28px;margin:6px 0 18px}
+
+    /* Controls */
+    .controls{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .search{flex:1;min-width:220px}
+    .search input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #ddd;background:var(--card)}
+    .select, .filters{display:flex;gap:8px;align-items:center}
+    .filters button{padding:9px 12px;border-radius:999px;border:1px solid #e4e4e4;background:#fff;cursor:pointer}
+    .filters button.active{background:var(--accent);color:#fff;border-color:transparent}
+    .select select{padding:9px;border-radius:8px;border:1px solid #ddd;background:#fff}
+
+    /* Orders list */
+    .orders{display:flex;flex-direction:column;gap:18px}
+    .order{background:var(--card);border-radius:var(--radius);box-shadow:0 1px 0 rgba(0,0,0,0.03);padding:14px;border:1px solid var(--glass)}
+    .order-header{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+    .oh-left{display:flex;gap:12px;align-items:center}
+    .order-meta{color:var(--muted);font-size:13px}
+    .oh-right{display:flex;gap:8px;align-items:center}
+    .badge{padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px}
+    .badge.shipped{background:#fff7e6;color:#7b4a00;border:1px solid #ffe9c7}
+    .badge.delivered{background:#f0fff4;color:#166534;border:1px solid #d1fadf}
+    .badge.cancel{background:#fff5f5;color:#9b1c1c;border:1px solid #ffdddd}
+
+    .items-row{display:flex;gap:12px;margin-top:12px;overflow:auto;padding-bottom:6px}
+    .item{min-width:180px;background:#fbfbfb;border-radius:10px;padding:10px;border:1px solid #f0f0f0;display:flex;gap:10px;align-items:center}
+    .thumb{width:64px;height:64px;border-radius:6px;background:linear-gradient(90deg,#eee,#ddd);display:flex;align-items:center;justify-content:center;color:#aaa}
+    .item-info{flex:1}
+    .item-title{font-weight:600}
+    .item-sub{font-size:13px;color:var(--muted);margin-top:6px}
+    .order-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:12px;flex-wrap:wrap}
+    .total{font-weight:700}
+    .actions{display:flex;gap:8px}
+    button.btn{padding:10px 12px;border-radius:8px;border:1px solid #d8d8d8;background:#fff;cursor:pointer}
+    button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    button.ghost{background:transparent}
+
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.4);display:none;align-items:center;justify-content:center;padding:16px}
+    .modal{background:#fff;border-radius:10px;max-width:720px;width:100%;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+    .modal h2{margin:0 0 6px}
+    .close{border:0;background:transparent;font-size:18px;cursor:pointer}
+
+    /* Responsive */
+    @media (min-width:900px){
+      .items-row{overflow:visible}
+      .item{min-width:220px}
+    }
+
+    @media (max-width:600px){
+      h1{font-size:20px}
+      .controls{gap:8px}
+      .search{order:1}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="sitebar">
+      <div class="logo">MyArtCraft</div>
+      <div style="margin-left:auto;color:var(--muted);font-size:14px">Tài khoản của bạn</div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Lịch sử mua hàng</h1>
+
+    <div class="controls">
+      <div class="search">
+        <input id="q" placeholder="Tìm theo mã đơn, tên sản phẩm, nhà cung cấp..." aria-label="Tìm đơn hàng" />
+      </div>
+      <div class="filters" role="tablist" aria-label="Bộ lọc trạng thái">
+        <button data-filter="all" class="active">Tất cả</button>
+        <button data-filter="not_shipped">Chưa gửi</button>
+        <button data-filter="shipped">Đang giao</button>
+        <button data-filter="delivered">Đã nhận</button>
+        <button data-filter="cancel">Hủy</button>
+      </div>
+      <div class="select">
+        <label for="sort" style="display:none">Sắp xếp</label>
+        <select id="sort">
+          <option value="newest">Mới nhất</option>
+          <option value="oldest">Cũ nhất</option>
+          <option value="price_desc">Giá cao → thấp</option>
+          <option value="price_asc">Giá thấp → cao</option>
+        </select>
+      </div>
+    </div>
+
+    <section class="orders" id="ordersList" aria-live="polite">
+      <!-- rendered by JS -->
+    </section>
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h2 id="modalTitle">Chi tiết đơn hàng</h2>
+        <button class="close" id="modalClose" aria-label="đóng">✕</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data: 10 orders inspired by Amazon's Orders Overview structure
+    const ORDERS = [
+      {
+        id: '112-8457754-1234567', date: '2025-09-18', status: 'delivered', total: 59.90,
+        items: [{title: 'Watercolor Set - 24 colors', qty:1, price:29.9},{title:'Brush Pack', qty:1, price:10},{title:'Canvas 20x30', qty:1, price:20}]
+      },
+      {id:'112-1111111-2222222', date:'2025-08-03', status:'shipped', total:12.50, items:[{title:'Yarn Ball',qty:2,price:6.25}]},
+      {id:'112-3333333-4444444', date:'2025-07-22', status:'delivered', total:45.00, items:[{title:'Acrylic Paints',qty:3,price:15}]},
+      {id:'112-5555555-6666666', date:'2025-06-10', status:'not_shipped', total:85.99, items:[{title:'Knitting Kit',qty:1,price:85.99}]},
+      {id:'112-7777777-8888888', date:'2025-05-02', status:'delivered', total:8.99, items:[{title:'Pack of Needles',qty:1,price:8.99}]},
+      {id:'112-9999999-0000001', date:'2025-04-18', status:'cancel', total:0.00, items:[{title:'Special Order - Custom Frame',qty:1,price:0}]},
+      {id:'112-2222222-3333333', date:'2025-03-09', status:'delivered', total:23.50, items:[{title:'Sketchbook',qty:1,price:12.5},{title:'Pencil Set',qty:1,price:11}]},
+      {id:'112-4444444-5555555', date:'2025-02-15', status:'shipped', total:34.00, items:[{title:'Embroidery Kit',qty:1,price:34}]},
+      {id:'112-6666666-7777777', date:'2025-01-11', status:'delivered', total:14.99, items:[{title:'Watercolor Paper 30s',qty:1,price:14.99}]},
+      {id:'112-8888888-9999999', date:'2024-12-05', status:'delivered', total:9.99, items:[{title:'Glue Stick Set',qty:3,price:3.33}]}
+    ];
+
+    const ordersEl = document.getElementById('ordersList');
+    const qEl = document.getElementById('q');
+    const sortEl = document.getElementById('sort');
+    const filterBtns = document.querySelectorAll('.filters button');
+
+    let state = {q:'',filter:'all',sort:'newest',orders:ORDERS.slice()};
+
+    function formatCurrency(n){return new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND'}).format(n).replace('₫','VND')}
+    // For demo we show USD numbers but format to VND to respect locale; adjust as needed
+
+    function renderOrders(){
+      // apply search/filter/sort
+      let list = ORDERS.filter(o=>{
+        if(state.filter !== 'all' && state.filter !== o.status) return false;
+        if(state.q){
+          const q = state.q.toLowerCase();
+          if(!o.id.toLowerCase().includes(q) && !o.items.some(it=>it.title.toLowerCase().includes(q))) return false;
+        }
+        return true;
+      });
+      if(state.sort==='newest') list.sort((a,b)=>new Date(b.date)-new Date(a.date));
+      else if(state.sort==='oldest') list.sort((a,b)=>new Date(a.date)-new Date(b.date));
+      else if(state.sort==='price_desc') list.sort((a,b)=>b.total-a.total);
+      else if(state.sort==='price_asc') list.sort((a,b)=>a.total-b.total);
+
+      ordersEl.innerHTML = '';
+      if(list.length===0){ordersEl.innerHTML='<div style="padding:20px;background:#fff;border-radius:8px;border:1px solid var(--glass)">Không tìm thấy đơn hàng</div>';return}
+
+      list.forEach(order=>{
+        const el = document.createElement('article');el.className='order';
+        el.innerHTML = `
+          <div class="order-header">
+            <div class="oh-left">
+              <div>
+                <div style="font-size:13px;color:var(--muted)">Đơn hàng • <span class="order-id">${order.id}</span></div>
+                <div class="order-meta">Đặt ngày: ${order.date}</div>
+              </div>
+            </div>
+            <div class="oh-right">
+              <div class="badge ${order.status==='shipped'? 'shipped' : order.status==='delivered'?'delivered':order.status==='cancel'? 'cancel':''}">${order.status.replace('_',' ').toUpperCase()}</div>
+            </div>
+          </div>
+          <div class="items-row">
+            ${order.items.map(it=>`
+              <div class="item">
+                <div class="thumb">🖼️</div>
+                <div class="item-info">
+                  <div class="item-title">${escapeHtml(it.title)}</div>
+                  <div class="item-sub">Số lượng: ${it.qty} • ${formatCurrency(it.price)}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          <div class="order-footer">
+            <div class="total">Tổng: ${formatCurrency(order.total)}</div>
+            <div class="actions">
+              <button class="btn" data-action="view" data-order="${order.id}">Xem chi tiết</button>
+              <button class="btn" data-action="track" data-order="${order.id}">Theo dõi</button>
+              <button class="btn" data-action="invoice" data-order="${order.id}">Hóa đơn</button>
+              <button class="btn primary" data-action="reorder" data-order="${order.id}">Mua lại</button>
+            </div>
+          </div>
+        `;
+        ordersEl.appendChild(el);
+      });
+    }
+
+    function escapeHtml(s){return (s+'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'":"&#39;'})[c])}
+
+    // Events
+    qEl.addEventListener('input', e=>{state.q=e.target.value.trim();renderOrders()});
+    sortEl.addEventListener('change', e=>{state.sort=e.target.value;renderOrders()});
+    filterBtns.forEach(b=>b.addEventListener('click', e=>{
+      filterBtns.forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      state.filter = b.dataset.filter;
+      renderOrders();
+    }));
+
+    // Delegate actions
+    ordersEl.addEventListener('click', e=>{
+      const btn = e.target.closest('button[data-action]');
+      if(!btn) return;
+      const action = btn.dataset.action; const id = btn.dataset.order;
+      const order = ORDERS.find(x=>x.id===id);
+      if(action==='view') openModal(order);
+      if(action==='track') showTracking(order);
+      if(action==='invoice') downloadInvoice(order);
+      if(action==='reorder') doReorder(order);
+    });
+
+    // Modal logic
+    const backdrop = document.getElementById('modalBackdrop');
+    const modalClose = document.getElementById('modalClose');
+    const modalBody = document.getElementById('modalBody');
+    const modalTitle = document.getElementById('modalTitle');
+
+    function openModal(order){
+      modalTitle.textContent = `Đơn hàng ${order.id}`;
+      modalBody.innerHTML = `
+        <div style="display:flex;gap:12px;flex-direction:column">
+          <div><strong>Ngày:</strong> ${order.date}</div>
+          <div><strong>Trạng thái:</strong> ${order.status}</div>
+          <div style="margin-top:8px"><strong>Sản phẩm:</strong>
+            <ul style="margin:8px 0 0;padding-left:18px">
+              ${order.items.map(it=>`<li>${it.title} — Số lượng ${it.qty} — ${formatCurrency(it.price)}</li>`).join('')}
+            </ul>
+          </div>
+          <div style="margin-top:8px"><strong>Tổng:</strong> ${formatCurrency(order.total)}</div>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button class="btn primary" onclick="doReorderById('${order.id}')">Mua lại</button>
+            <button class="btn" onclick="downloadInvoiceById('${order.id}')">Tải hóa đơn</button>
+          </div>
+        </div>
+      `;
+      backdrop.style.display='flex';backdrop.setAttribute('aria-hidden','false');
+    }
+    modalClose.addEventListener('click', ()=>{backdrop.style.display='none';backdrop.setAttribute('aria-hidden','true')});
+    backdrop.addEventListener('click', e=>{if(e.target===backdrop){backdrop.style.display='none';backdrop.setAttribute('aria-hidden','true')}});
+
+    function showTracking(order){
+      openModal(order);
+      // append tracking stub
+      const trackingHtml = `\n        <div style="margin-top:12px">\n          <strong>Theo dõi gói hàng</strong>\n          <div style=\"margin-top:8px;display:flex;gap:8px;align-items:center\">\n            <div style=\"flex:1;height:10px;background:#eee;border-radius:999px;overflow:hidden\">\n              <div style=\"width:${order.status==='delivered'?100:order.status==='shipped'?70:20}% ;height:100%;background:linear-gradient(90deg,var(--accent),#ffb84d)\"></div>\n            </div>\n            <div style=\"font-size:13px;color:var(--muted)\">${order.status}</div>\n          </div>\n        </div>`;
+      modalBody.insertAdjacentHTML('beforeend', trackingHtml);
+    }
+
+    function downloadInvoice(order){
+      // Simple printable invoice in new tab
+      const html = `<!doctype html><html><head><meta charset=\"utf-8\"><title>Hóa đơn ${order.id}</title><style>body{font-family:Arial;padding:20px}h1{color:#111}table{width:100%;border-collapse:collapse}td,th{padding:8px;border:1px solid #ddd}</style></head><body><h1>HÓA ĐƠN</h1><p>Đơn hàng: ${order.id}</p><p>Ngày: ${order.date}</p><table><thead><tr><th>Sản phẩm</th><th>Số lượng</th><th>Đơn giá</th></tr></thead><tbody>${order.items.map(it=>`<tr><td>${it.title}</td><td>${it.qty}</td><td>${formatCurrency(it.price)}</td></tr>`).join('')}</tbody></table><h3>Tổng: ${formatCurrency(order.total)}</h3></body></html>`;
+      const w = window.open('about:blank','_blank');
+      w.document.write(html); w.document.close();
+      // we can call print if desired: w.print();
+    }
+
+    function doReorder(order){
+      // Demo: open modal to simulate adding items to cart
+      alert('Đã thêm ' + order.items.length + ' mục vào giỏ (demo). Mua lại từ đơn: ' + order.id);
+    }
+    // exposed helpers for modal buttons
+    window.doReorderById = function(id){ const o=ORDERS.find(x=>x.id===id); doReorder(o); }
+    window.downloadInvoiceById = function(id){ const o=ORDERS.find(x=>x.id===id); downloadInvoice(o); }
+
+    // Initial render
+    renderOrders();
+
+    // Accessibility: keyboard shortcuts
+    document.addEventListener('keydown', e=>{
+      if(e.key==='/' && document.activeElement!==qEl){ e.preventDefault(); qEl.focus(); }
+      if(e.key==='Escape'){ backdrop.style.display='none';backdrop.setAttribute('aria-hidden','true') }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng - Coffee House</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <header>
+    <h1>Giỏ hàng của bạn</h1>
+  </header>
+
+  <main class="cart-container">
+    <div class="cart-item">
+      <img src="images/coffee-beans.jpg" alt="Cà phê hạt">
+      <div class="item-info">
+        <h2>Cà phê hạt Arabica</h2>
+        <p>250g</p>
+        <span class="price">120.000đ</span>
+      </div>
+      <div class="item-quantity">
+        <span>-</span>
+        <input type="text" value="1">
+        <span>+</span>
+      </div>
+    </div>
+
+    <div class="cart-item">
+      <img src="images/coffee-ground.jpg" alt="Cà phê rang xay">
+      <div class="item-info">
+        <h2>Cà phê rang xay</h2>
+        <p>500g</p>
+        <span class="price">200.000đ</span>
+      </div>
+      <div class="item-quantity">
+        <span>-</span>
+        <input type="text" value="2">
+        <span>+</span>
+      </div>
+    </div>
+
+    <div class="cart-total">
+      <h3>Tổng cộng: 520.000đ</h3>
+      <button>Thanh toán</button>
+    </div>
+  </main>
+</body>
+</html>

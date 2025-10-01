@@ -1,0 +1,31 @@
+{
+  "products": [
+    {
+      "id": 101,
+      "title": "Handmade Clay Pot",
+      "price": 25,
+      "rating": 4.5,
+      "material": "Clay",
+      "description": "Traditional handmade clay pot for home decoration.",
+      "thumbnail": "images/claypot.jpg"
+    },
+    {
+      "id": 102,
+      "title": "Wooden Sculpture",
+      "price": 40,
+      "rating": 4.8,
+      "material": "Wood",
+      "description": "Beautiful wooden sculpture carved by skilled artisans.",
+      "thumbnail": "images/woodsculpture.jpg"
+    },
+    {
+      "id": 103,
+      "title": "Paper Origami Set",
+      "price": 15,
+      "rating": 4.0,
+      "material": "Paper",
+      "description": "Origami set with colorful papers for creative folding.",
+      "thumbnail": "images/origami.jpg"
+    }
+  ]
+}

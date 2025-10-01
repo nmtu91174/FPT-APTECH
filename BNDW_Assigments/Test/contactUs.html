@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact us page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Menu điều hướng -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home page</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="price.html">Pricing</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+        <h1>contact us</h1>
+        <p>we always listen</p>           
+
+    </header>
+
+    <div class="container">
+
+    <!-- Thông tin liên hệ -->
+    <section class="contact-info">
+        <h2>location</h2>
+        <hr class="custom-line">
+        <p class="info-description">
+            Aptivates with its stunning views and exquisite decor, making it a favorite among chill seekers in Hanoi. Every corner is thoughtfully adorned, creating a visually pleasing environment perfect for enjoying coffee.
+        </p>
+        <h3>adress</h3>
+        
+        <p class="adress">13 trinh van bo</p>
+        <h3>phone</h3>
+        <p class="adress"><b>Hotline:</b> 1900 6750</p>
+        <p class="adress"><b>phone:</b> 024 7300 6750</p>
+        <h3>Email</h3>
+        <p class="email">support@coffeehouse.vn</p>
+        <h3>open hour</h3>
+        <p class="adress">07:00 - 22:00 (Monday - Sunday)</p>
+        <br><br>
+        <img src="image/confused.png" alt="looking for direction" width="200px"/>
+    </section>
+
+    <!-- Form liên hệ -->
+    <section class="contact-form">
+        <h2>write us</h2>
+        <form>
+            <div class="form-group">
+                <label>Your name:</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Your phone:</label>
+                <input type="tel" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label>Your message:</label>
+                <textarea name="message" rows="10" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <button onclick="return confirm('Think twice?')" type="submit">SEND</button>
+            </div>
+        </form>
+    </section>
+    </div>
+
+    <!-- Bản đồ -->
+    <section class="map">
+        
+        <h2>our location</h2>
+        <iframe
+                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3922.3573420634375!2d105.7466813980147!3d21.039158641070788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1svi!2sus!4v1757399459053!5m2!1svi!2sus" width="100%" height="600" style="border: 1px solid white;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+            
+    </section>
+
+    <!-- Mạng xã hội -->
+    <footer>
+        <p>follow us:</p>
+            <a href="#" class="facebook"><i class="fab fa-facebook"></i> Facebook</a> |
+            <a href="#" class="instagram"><i class="fab fa-instagram"></i> Instagram</a> |
+            <a href="#" class="tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+    </footer>
+</body>
+</html>

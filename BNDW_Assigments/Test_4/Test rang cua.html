@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Torn edge demo</title>
+<style>
+:root{
+  --card-bg: #fff;
+  --page-bg: #f3f3f3;
+  --zig-size: 24px;
+  --zig-height: 16px;
+}
+body{ background: var(--page-bg); font-family: Arial, sans-serif; padding: 40px; }
+.torn-card{ position: relative; background: var(--card-bg); padding: 2rem; border-radius:8px;
+           box-shadow: 0 6px 18px rgba(0,0,0,0.08); overflow: visible; max-width:800px; margin:0 auto; }
+.torn-card::before,.torn-card::after{
+  content:""; position:absolute; left:0; right:0; height: var(--zig-height);
+  background-repeat: repeat-x;
+  background-size: calc(var(--zig-size) * 2) var(--zig-height);
+  background-image:
+    linear-gradient(135deg, transparent 75%, var(--page-bg) 75%),
+    linear-gradient(225deg, transparent 75%, var(--page-bg) 75%);
+  background-position: 0 0, calc(var(--zig-size)) 0;
+  z-index:1; pointer-events:none;
+}
+.torn-card::before{ top: calc(-1 * var(--zig-height)); }
+.torn-card::after{ bottom: calc(-1 * var(--zig-height)); }
+.torn-card h2{ margin:0 0 10px; }
+.torn-card p{ margin:0; color:#333; }
+</style>
+</head>
+<body>
+  <div class="torn-card">
+    <h2>Heading</h2>
+    <p>Đây là nội dung trong thẻ có viền răng cưa trên và dưới. Thay đổi biến CSS (--zig-size, --zig-height, --page-bg) để tùy chỉnh.</p>
+  </div>
+</body>
+</html>
