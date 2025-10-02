@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order History</title>
+    <style>
+        /* RESET */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f9fb;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER */
+        header {
+            background: #6bb23f;
+            color: #fff;
+            height: 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        header .user {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* LAYOUT */
+        .container {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        /* SIDEBAR */
+        aside {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            border-radius: 6px;
+            color: #444;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            position: relative;
+        }
+
+        .nav-item.active {
+            background: #f0f6ff;
+            font-weight: bold;
+        }
+
+        .nav-item.active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #2b7be9;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .badge {
+            background: #2b7be9;
+            color: #fff;
+            font-size: 0.75rem;
+            border-radius: 12px;
+            padding: 2px 8px;
+            margin-left: auto;
+        }
+
+        /* MAIN */
+        main h1 {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+
+        main p.sub {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* ORDER CARD */
+        .order-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 16px;
+        }
+
+        .order-status {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot.green {
+            background: #4caf50;
+        }
+
+        .dot.gray {
+            background: #aaa;
+        }
+
+        .order-body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .items {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .product-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .meta .title {
+            font-weight: 500;
+        }
+
+        .meta .time {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 180px;
+            align-items: flex-end;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn.primary {
+            background: #6bb23f;
+            color: #fff;
+            border: none;
+        }
+
+        .btn.secondary {
+            border: 1px solid #2b7be9;
+            color: #2b7be9;
+            background: #fff;
+        }
+
+        .link {
+            font-size: 0.85rem;
+            color: #2b7be9;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width:768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                order: 2;
+            }
+
+            main {
+                order: 1;
+            }
+
+            .order-body {
+                flex-direction: column;
+            }
+
+            .actions {
+                align-items: stretch;
+            }
+
+            .btn,
+            .link {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">ao</div>
+        <div class="user" role="navigation" aria-label="User menu">
+            <span>Anuar</span>
+            <img src="https://via.placeholder.com/32" alt="User avatar" style="border-radius:50%">
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <ul>
+                <li class="nav-item active">View orders <span class="badge">3</span></li>
+                <li class="nav-item">Personal details</li>
+                <li class="nav-item">Change password</li>
+                <li class="nav-item">Payment methods</li>
+                <li class="nav-item">Manage addresses</li>
+                <li class="nav-item">Social accounts</li>
+                <li class="nav-item">Log out</li>
+            </ul>
+        </aside>
+
+        <main>
+            <h1>Order history</h1>
+            <p class="sub">3 orders</p>
+
+            <!-- Order 1 -->
+            <article class="order-card">
+                <div class="order-status"><span class="dot green"></span> Dispatched</div>
+                <div class="order-body">
+                    <div class="items">
+                        <div class="product-item">
+                            <img src="https://via.placeholder.com/60" alt="Product">
+                            <div class="meta">
+                                <div class="title">Arrives tomorrow</div>
+                                <div class="time">7am - 7pm</div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <img src="https://via.placeholder.com/60" alt="Product">
+                            <div class="meta">
+                                <div class="title">Expected on Mon, 2 July</div>
+                                <div class="time">7am - 7pm</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn primary">Track order</button>
+                        <button class="btn secondary">View order details</button>
+                        <span class="link">Get invoice</span>
+                        <span class="link">Edit order</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Order 2 -->
+            <article class="order-card">
+                <div class="order-status"><span class="dot gray"></span> Delivered on 23 June</div>
+                <div class="order-body">
+                    <div class="items">
+                        <div class="product-item">
+                            <img src="https://via.placeholder.com/60" alt="Huawei Phone">
+                            <div class="meta">
+                                <div class="title">Huawei P20 Pro 128GB Smartphone</div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <img src="https://via.placeholder.com/60" alt="Keyboard Cover">
+                            <div class="meta">
+                                <div class="title">Microsoft Keyboard Cover for Surface Go</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn secondary">View order details</button>
+                        <span class="link">Get invoice</span>
+                        <span class="link">Edit order</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Order 3 -->
+            <article class="order-card">
+                <div class="order-status"><span class="dot gray"></span> Delivered on 15 December, 2016</div>
+                <div class="order-body">
+                    <div class="items">
+                        <div class="product-item">
+                            <img src="https://via.placeholder.com/60" alt="Bosch Oven">
+                            <div class="meta">
+                                <div class="title">Bosch Serie 2 Electric Single Oven</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn secondary">View order details</button>
+                        <span class="link">Get invoice</span>
+                        <span class="link">Edit order</span>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+</body>
+
+</html>
